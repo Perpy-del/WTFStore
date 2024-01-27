@@ -34,3 +34,4 @@ document.addEventListener('DOMContentLoaded', () => {
     loadMoreBtn.click()
 })
 
+// DRY - Don't repeat yourself
