@@ -1,12 +1,12 @@
 body {
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Mulish', sans-serif;
     font-weight: 400;
     font-style: normal;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: #FFFFFF;
 }
 
 .title {
@@ -19,25 +19,53 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
     padding: 20px;
     justify-content: center;
     border-radius: 5px;
+    margin: 0 20px;
+}
+
+.back_home, .move_to_categories {
+    display: flex;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(16, 91, 229, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.back_home:hover, .move_to_categories:hover {
+    background-color: rgba(16, 91, 229, 0.86);
 }
 
 #product-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    width: 130px;
+    height: 150px;
+    background-color: #EEEEEE;
 }
 
 #load-more{
     margin-top: 20px;
+    background-color: rgba(16, 91, 229, 0.7);
+    appearance: none;
+    outline: none;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Mulish', sans-serif;
+
+}
+
+#load-more:hover {
+    background-color: rgba(16, 91, 229, 0.86);;
 }
 
 .product-info{
-    background-color: cornsilk;
+    background-color: #EEEEEE;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px  rgba(0,0,0,0.2);
@@ -45,8 +73,42 @@ body {
 
 .category {
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .category:hover {
     text-decoration: underline;
+}
+
+.categories-container {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+#product-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#product-description {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: justify;
+    line-height: 20px;
+}
+
+#product-price {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+#product-rating {
+    font-size: 12px;
+}
+
+#reviews {
+    font-size: 12px;
+    color: #696464;
+    display: inline-block;
 }

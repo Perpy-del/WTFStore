@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const categoriesContainer = document.getElementById('categories')
-    let currPage = 1;
-    let catIndex = 0;
+    let currentCategory = null;
+    // const loadMoreBtn = document.getElementById('category-more')
+    // loadMoreBtn.style.display = 'none';
+    // let currPage = 1;
 
     // Fetched the list of categories from the API endpoint
     async function fetchCategory(){
@@ -12,18 +14,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // fetch each category dynamically
     async function fetchEachCategory(category){
-        const response = await fetch(`https://fakestoreapi.com/products/category/${category}?limit=3&page=${currPage}`)
+        const response = await fetch(`https://fakestoreapi.com/products/category/${category}`)
         const eachCategory = await response.json()
         displayEachCategory(eachCategory)
     }
+    
 
     function displayCategories(categories){
-        categories.forEach(category => {
-            const catDiv = document.createElement('div')
+        categories.forEach((category, index) => {
+            const catDiv = document.createElement('h3')
             catDiv.className = 'category'
             catDiv.innerText = category
             categoriesContainer.appendChild(catDiv)
-            catDiv.addEventListener('click', () => fetchEachCategory(category));
+            if (index === 0) {
+                catDiv.style.color = 'rgba(16, 91, 229, 0.86)';
+                currentCategory = catDiv;
+                fetchEachCategory(category);
+            }
+
+            catDiv.addEventListener('click', () => {
+                if (currentCategory) {
+                    currentCategory.style.color = '';
+                }
+                fetchEachCategory(category); 
+                catDiv.style.color = 'rgba(16, 91, 229, 0.86)';
+                currentCategory = catDiv;
+            });
         })
     }
 
@@ -31,21 +47,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const container = document.getElementById('each_category')
         container.innerHTML = "";
         products.forEach(product => {
-            const productDIv = document.createElement('div')
-            productDIv.className = 'product-info'
-            productDIv.innerHTML = `
+            const categoryDiv = document.createElement('div')
+            categoryDiv.className = 'product-info'
+            categoryDiv.innerHTML = `
+            <div id="img_container">
             <img src=${product.image} alt=${product.title} id="product-image">
+            </div>
             <h3 id="product-title">${product.title}</h3>
             <p id="product-description">${product.description}</p>
             <p id="product-price">$ ${product.price}</p>
-            <p id="product-category">${product.category}</p>
-            <p id="product-rating">${product.rating.rate} (${product.rating.count} reviews)</p>
+            <p id="product-rating">${product.rating.rate} <span id="reviews">(${product.rating.count} reviews)</span></p>
             `
-            container.appendChild(productDIv)
+            container.appendChild(categoryDiv)
         })
     }
 
     fetchCategory().then(displayCategories)
+    fetchEachCategory('electronics');
 })
 
 /*

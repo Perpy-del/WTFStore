@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loadMoreBtn = document.getElementById('load-more')
-    let currPage = 1;
+    let currPage = 1; 
 
     async function getProducts(page){
-        const res = await fetch(`https://fakestoreapi.com/products?limit=8&page=${page}`)
+        const res = await fetch(`https://fakestoreapi.com/products?limit=6&page=${page}`)
         const products = await res.json() 
         return products
     }
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p id="product-description">${product.description}</p>
             <p id="product-price">$ ${product.price}</p>
             <p id="product-category">${product.category}</p>
-            <p id="product-rating">${product.rating.rate} (${product.rating.count} reviews)</p>
+            <p id="product-rating">${product.rating.rate} <span id="reviews">(${product.rating.count} reviews)</span></p>
             `
             container.appendChild(productDIv)
         })

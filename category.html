@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Simple Ecommerce Application | Categories</title>
-    <meta name="description" content="This is a basic application to consume API">
-     <!-- begining of google font code -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@200;500;700;900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-     <!-- end of google font code -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="This is a basic application to consume API"
+    />
+    <!-- begining of google font code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- end of google font code -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1 class="title">Product Category</h1>
 
     <div>
-        <a href="index.html">Home</a>
+      <a href="index.html" class="back_home">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-left-to-line"
+        >
+          <path d="M3 19V5" />
+          <path d="m13 6-6 6 6 6" />
+          <path d="M7 12h14" />
+        </svg>
+        Back to Home
+      </a>
     </div>
 
     <!-- Categories -->
-    <div id="categories"></div>
+    <div id="categories" class="categories-container"></div>
 
     <!-- Section for each category -->
     <section class="container" id="each_category"></section>
-   
+
     <script src="script2.js"></script>
-</body>
+  </body>
 </html>
